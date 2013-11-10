@@ -35,6 +35,5 @@ public class ReisekortSystemTest {
     	// Lad opp og verifiser
     	Klippekort ferdigKort = rs.ladOppKlippekort(kortNr, 250);
     	assertEquals((Klippekort.PRIS_PER_REISE+250), ferdigKort.getSaldo());
-
     }
 }

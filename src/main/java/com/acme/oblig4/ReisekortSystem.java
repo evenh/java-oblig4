@@ -27,16 +27,10 @@ public class ReisekortSystem {
 		return null;
 	}
 
+	// Egendefinert metode for å finne ut hvor stort arrayet er.
+	// Kan kanskje sløyfes hvis det ikke kun skal brukes i test?
 	public int getAntallReisekort(){
 		return this.reisekortene.length;
-	}
-
-	public String foo(){
-		String y = "";
-		for(Reisekort x : this.reisekortene){
-			y += x.getKortNr() + "\n";
-		}
-		return y;
 	}
 
 	public void utvidArray(){
