@@ -47,7 +47,7 @@ public class Klippekort extends Reisekort {
 		if(super.gyldig()){
 			return true;
 		}
-		if(saldo >= PRIS_PER_REISE){
+		if(saldo >= this.PRIS_PER_REISE){
 			// Ny kalender
 			Calendar utlop = Calendar.getInstance();
 			// Legg til en time
@@ -55,7 +55,7 @@ public class Klippekort extends Reisekort {
 			// Oppdater utløpsdato
 			setUtlopstidspunkt(utlop);
 			// Trekk penger og sett gyldig billett
-			saldo -= PRIS_PER_REISE;
+			saldo -= this.PRIS_PER_REISE;
 
 			return true;
 		}
