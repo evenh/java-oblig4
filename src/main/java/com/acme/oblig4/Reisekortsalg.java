@@ -37,7 +37,7 @@ public class Reisekortsalg extends JFrame {
 		this.mnd           = new JButton("Månedskort");
 		this.ladeknapp     = new JButton("Oppladning av klippekort");
 		
-		this.info          = new JTextArea(5, 32);
+		this.info          = new JTextArea(4, 32);
 
 		this.info.setEditable(false);
 		this.betalingsFelt.setEditable(false);
@@ -48,6 +48,14 @@ public class Reisekortsalg extends JFrame {
 		this.dag.addActionListener(this.lytter);
 		this.mnd.addActionListener(this.lytter);
 		this.ladeknapp.addActionListener(this.lytter);
+
+		this.klipp.setActionCommand("klipp");
+		this.dag.setActionCommand("dag");
+		this.mnd.setActionCommand("mnd");
+		this.ladeknapp.setActionCommand("ladeknapp");
+
+		// Fyll infoboksen med priser
+		this.info.setText("Klippekort:\t"+Klippekort.PRIS_PER_REISE+"\nDagskort:\t"+Dagskort.DAGSPRIS+"\nMånedskort:\t"+Maanedskort.MAANEDSPRIS);
 
 		// Plassering
 		Container c = getContentPane();
@@ -69,10 +77,10 @@ public class Reisekortsalg extends JFrame {
 
 		// Vindu
 		if(System.getProperty("os.name").toLowerCase().indexOf("windows")!= -1){
-			setSize(360, 220);
+			setSize(365, 220);
 		} else {
 			// Mac
-			setSize(380, 220);
+			setSize(385, 220);
 		}
 
 		// Synlighet og lukkbar
@@ -80,9 +88,62 @@ public class Reisekortsalg extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
+	public void nyttReisekort(int kortType){
+		Reisekort kort = null;
+
+		switch(kortType){
+			case KLIPP:
+				kort = new Klippekort(Integer.parseInt(this.belopsFelt.getText()));
+				break;
+
+			case DAG:
+				kort = new Dagskort();
+				break;
+
+			case MAANED:
+				kort = new Maanedskort();
+				break;
+		}
+
+		// Aktiviser kortet
+		this.kortsystem.settInnReisekort(kort);
+		this.betalingsFelt.setText(kort.getPris()+",-");
+		this.kortNrFelt.setText(Integer.toString(kort.getKortNr()));
+	}
+
+	public void ladOppKlippekort(){
+		int kortNr = Integer.parseInt(this.kortNrFelt.getText());
+		int sum    = Integer.parseInt(this.belopsFelt.getText());
+
+		Klippekort kort = this.kortsystem.ladOppKlippekort(kortNr, sum);
+
+		if(kort != null){
+			JOptionPane.showMessageDialog(null, "Ny saldo er kr "+kort.getSaldo()+",-");
+			this.betalingsFelt.setText(sum+",-");
+		}
+
+		this.betalingsFelt.setText("error");
+	}
+
 	public class Lytter implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			
+			switch(e.getActionCommand()){
+				case "klipp":
+					nyttReisekort(KLIPP);
+					break;
+
+				case "dag":
+					nyttReisekort(DAG);
+					break;
+
+				case "mnd":
+					nyttReisekort(MAANED);
+					break;
+
+				case "ladeknapp":
+					ladOppKlippekort();
+					break;
+			}
 		}
 	}
 
