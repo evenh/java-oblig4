@@ -21,7 +21,7 @@ public class KlippekortTest
 
     @Test
     public void harRiktigStatistikk(){
-		int yUWork = 6;
+		int yUWork = 5;
 
 		assertEquals(1*yUWork, kk.getAntallSolgte());
     	assertEquals((Klippekort.PRIS_PER_REISE*yUWork)+500, kk.getSumAlleKlippekort());
@@ -56,7 +56,7 @@ public class KlippekortTest
 	}
 
 	@Test
-	public void sjekkDagskortUgyldigEtterEttDogn(){
+	public void sjekkUgyldigEtterEtterToTimer(){
     	// Sett opp vår kalender
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.HOUR, 2);
