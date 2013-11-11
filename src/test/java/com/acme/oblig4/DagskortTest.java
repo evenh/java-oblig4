@@ -14,13 +14,6 @@ public class DagskortTest {
 	Dagskort dk = new Dagskort();
 
 	@Test
-	public void sjekkStatistikk(){
-		int tester = 4;
-		assertEquals(1*tester, Dagskort.getAntallSolgte());
-		assertEquals(Dagskort.DAGSPRIS*tester, Dagskort.getSumAlleDagskort());
-	}
-
-	@Test
 	public void sjekkKorrektUtlopsTid(){
     	// Sett opp vår kalender
 		Calendar c = Calendar.getInstance();

@@ -14,13 +14,6 @@ public class MaanedskortTest {
 	Maanedskort mk = new Maanedskort();
 
 	@Test
-	public void sjekkStatistikk(){
-		int tester = 4;
-		assertEquals(1*tester, Maanedskort.getAntallSolgte());
-		assertEquals(Maanedskort.MAANEDSPRIS*tester, Maanedskort.getSumAlleMaanedskort());
-	}
-
-	@Test
 	public void sjekkKorrektUtlopsTid(){
     	// Sett opp vår kalender
 		Calendar c = Calendar.getInstance();

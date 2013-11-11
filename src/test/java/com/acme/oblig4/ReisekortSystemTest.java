@@ -49,9 +49,4 @@ public class ReisekortSystemTest {
     	assertEquals(true, mk.valider());
     }
 
-    @Test
-    public void inntjening(){
-    	System.out.println(ReisekortSystem.inntjeningsInfo());
-    	assert(true);
-    }
 }
