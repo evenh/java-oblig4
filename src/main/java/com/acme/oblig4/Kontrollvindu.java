@@ -47,7 +47,8 @@ public class Kontrollvindu extends JFrame {
 		c.add(this.kontroll);
 
 		// Textarea
-		this.display = new JTextArea(20,28);
+		this.display = new JTextArea(9,28);
+		this.display.setEditable(false);
 		this.display.setBackground(this.gul);
 		c.add(this.display);
 
@@ -83,7 +84,7 @@ public class Kontrollvindu extends JFrame {
 				this.display.append("Ugyldig billett\n");
 				if(kort instanceof Klippekort){
 					this.display.append("En enkeltreise koster kr "+Klippekort.PRIS_PER_REISE+",-");
-					this.display.append(". Din saldo er "+((Klippekort) kort).getSaldo());
+					this.display.append(". Din saldo er kr "+((Klippekort) kort).getSaldo()+",-");
 				}
 			}
 

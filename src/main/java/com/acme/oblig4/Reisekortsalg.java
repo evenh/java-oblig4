@@ -55,7 +55,7 @@ public class Reisekortsalg extends JFrame {
 		this.ladeknapp.setActionCommand("ladeknapp");
 
 		// Fyll infoboksen med priser
-		this.info.setText("Klippekort:\t"+Klippekort.PRIS_PER_REISE+"\nDagskort:\t"+Dagskort.DAGSPRIS+"\nMånedskort:\t"+Maanedskort.MAANEDSPRIS);
+		this.info.setText("Klippekort:\tkr "+Klippekort.PRIS_PER_REISE+",-\nDagskort:\tkr "+Dagskort.DAGSPRIS+",-\nMånedskort:\tkr "+Maanedskort.MAANEDSPRIS+",-");
 
 		// Plassering
 		Container c = getContentPane();
