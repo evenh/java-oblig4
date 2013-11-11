@@ -11,7 +11,6 @@ package com.acme.oblig4;
 
 import java.util.Calendar;
 
-// Klassen er ikke påkrevd å implementere iflg. oppgaveteksten
 public class Dagskort extends Reisekort {
 	public final static int DAGSPRIS = 75;
 	private int saldo;
@@ -34,6 +33,11 @@ public class Dagskort extends Reisekort {
 		return this.antallSolgte;
 	}
 
+	// Alias til gyldig()
+	public boolean valider(){
+		return this.gyldig();
+	}
+
 	public boolean gyldig(){
 		if(super.gyldig()){
 			return true;
@@ -42,7 +46,7 @@ public class Dagskort extends Reisekort {
 			// Ny kalender
 			Calendar utlop = Calendar.getInstance();
 			// Legg til en dag
-			utlop.add(Calendar.DAY_OF_WEEK, 1);
+			utlop.add(Calendar.DATE, 1);
 			// Oppdater utløpsdato
 			setUtlopstidspunkt(utlop);
 			// Trekk penger og sett gyldig billett

@@ -42,6 +42,11 @@ public class Klippekort extends Reisekort {
 		return this.sumAlleKlippekort;
 	}
 
+	// Alias til gyldig()
+	public boolean valider(){
+		return this.gyldig();
+	}
+
 	public boolean gyldig(){
 		// Hvis Reisekort sier den er gyldig, er alt fint
 		if(super.gyldig()){
