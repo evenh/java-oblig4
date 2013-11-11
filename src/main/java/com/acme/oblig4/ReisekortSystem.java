@@ -78,6 +78,22 @@ public class ReisekortSystem {
 	}
 
 	public static String inntjeningsInfo(){
-		return "Må implementeres";
+		String inntjening;
+
+		// Total
+		int totalSum = Klippekort.getSumAlleKlippekort() +
+		 			   Dagskort.getSumAlleDagskort() +
+		 			   Maanedskort.getSumAlleMaanedskort();
+		inntjening  = "Det er solgt kort for kr. "+totalSum+",-\n";
+		inntjening += "Av disse er det solgt\n";
+
+		// Klippekort
+		inntjening += Klippekort.getAntallSolgte()+" klippekort for tilsammen kr. "+Klippekort.getSumAlleKlippekort()+",-\n";
+		// Dagskort
+		inntjening += Dagskort.getAntallSolgte()+" dagskort for tilsammen kr. "+Dagskort.getSumAlleDagskort()+",-\n";
+		// Månedskort
+		inntjening += Maanedskort.getAntallSolgte()+" klippekort for tilsammen kr. "+Maanedskort.getSumAlleMaanedskort()+",-\n";
+
+		return inntjening;
 	}
 }

@@ -15,7 +15,7 @@ public class DagskortTest {
 
 	@Test
 	public void sjekkStatistikk(){
-		int tester = 3;
+		int tester = 4;
 		assertEquals(1*tester, Dagskort.getAntallSolgte());
 		assertEquals(Dagskort.DAGSPRIS*tester, Dagskort.getSumAlleDagskort());
 	}

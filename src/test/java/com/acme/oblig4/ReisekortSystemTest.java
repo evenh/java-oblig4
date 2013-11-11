@@ -15,7 +15,7 @@ public class ReisekortSystemTest {
     	assertEquals(true, (rs instanceof ReisekortSystem));
     }
 
-    @Test 
+    @Test
     public void settInn105Reisekort(){
     	for(int i=0;i<(rs.ANTALL+5);i++){
     		Klippekort kk = new Klippekort(Klippekort.PRIS_PER_REISE);
@@ -35,5 +35,23 @@ public class ReisekortSystemTest {
     	// Lad opp og verifiser
     	Klippekort ferdigKort = rs.ladOppKlippekort(kortNr, 250);
     	assertEquals((Klippekort.PRIS_PER_REISE+250), ferdigKort.getSaldo());
+    }
+
+    @Test
+    public void nyttDagskort(){
+    	Dagskort dk = new Dagskort();
+    	assertEquals(true, dk.valider());
+    }
+
+    @Test
+    public void nyttMaanedskort(){
+    	Maanedskort mk = new Maanedskort();
+    	assertEquals(true, mk.valider());
+    }
+
+    @Test
+    public void inntjening(){
+    	System.out.println(ReisekortSystem.inntjeningsInfo());
+    	assert(true);
     }
 }

@@ -15,7 +15,7 @@ public class MaanedskortTest {
 
 	@Test
 	public void sjekkStatistikk(){
-		int tester = 3;
+		int tester = 4;
 		assertEquals(1*tester, Maanedskort.getAntallSolgte());
 		assertEquals(Maanedskort.MAANEDSPRIS*tester, Maanedskort.getSumAlleMaanedskort());
 	}
