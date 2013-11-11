@@ -40,7 +40,7 @@ public abstract class Reisekort {
 	}
 
 	public String gyldigTil(){
-		if(this.utlopstidspunkt == null){
+		if(this.getUtlopstidspunkt() == null){
 			return null;
 		}
 		DateFormat tf = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.MEDIUM);
