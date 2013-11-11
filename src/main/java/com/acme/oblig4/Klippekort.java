@@ -34,12 +34,12 @@ public class Klippekort extends Reisekort {
 		return this.saldo;
 	}
 
-	public int getAntallSolgte(){
-		return this.antallSolgte;
+	public static int getAntallSolgte(){
+		return antallSolgte;
 	}
 
-	public int getSumAlleKlippekort(){
-		return this.sumAlleKlippekort;
+	public static int getSumAlleKlippekort(){
+		return sumAlleKlippekort;
 	}
 
 	// Alias til gyldig()

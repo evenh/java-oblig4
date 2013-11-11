@@ -23,8 +23,8 @@ public class KlippekortTest
     public void harRiktigStatistikk(){
 		int yUWork = 5;
 
-		assertEquals(1*yUWork, kk.getAntallSolgte());
-    	assertEquals((Klippekort.PRIS_PER_REISE*yUWork)+500, kk.getSumAlleKlippekort());
+		assertEquals(1*yUWork, Klippekort.getAntallSolgte());
+    	assertEquals((Klippekort.PRIS_PER_REISE*yUWork)+500, Klippekort.getSumAlleKlippekort());
     }
 
     @Test

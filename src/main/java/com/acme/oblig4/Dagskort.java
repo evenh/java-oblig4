@@ -25,12 +25,12 @@ public class Dagskort extends Reisekort {
 		this.sumAlleDagskort += this.DAGSPRIS;
 	}
 
-	public int getSumAlleDagskort(){
-		return this.sumAlleDagskort;
+	public static int getSumAlleDagskort(){
+		return sumAlleDagskort;
 	}
 
-	public int getAntallSolgte(){
-		return this.antallSolgte;
+	public static int getAntallSolgte(){
+		return antallSolgte;
 	}
 
 	// Alias til gyldig()

@@ -25,12 +25,12 @@ public class Maanedskort extends Reisekort {
 		this.sumAlleDagskort += this.MAANEDSPRIS;
 	}
 
-	public int getSumAlleMaanedskort(){
-		return this.sumAlleDagskort;
+	public static int getSumAlleMaanedskort(){
+		return sumAlleDagskort;
 	}
 
-	public int getAntallSolgte(){
-		return this.antallSolgte;
+	public static int getAntallSolgte(){
+		return antallSolgte;
 	}
 
 	// Alias til gyldig()
