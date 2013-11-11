@@ -92,7 +92,7 @@ public class ReisekortSystem {
 		// Dagskort
 		inntjening += Dagskort.getAntallSolgte()+" dagskort for tilsammen kr. "+Dagskort.getSumAlleDagskort()+",-\n";
 		// Månedskort
-		inntjening += Maanedskort.getAntallSolgte()+" klippekort for tilsammen kr. "+Maanedskort.getSumAlleMaanedskort()+",-\n";
+		inntjening += Maanedskort.getAntallSolgte()+" månedskort for tilsammen kr. "+Maanedskort.getSumAlleMaanedskort()+",-\n";
 
 		return inntjening;
 	}

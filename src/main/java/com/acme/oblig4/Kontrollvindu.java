@@ -75,17 +75,19 @@ public class Kontrollvindu extends JFrame {
 				this.display.setBackground(this.gronn);
 				if(kort instanceof Klippekort){
 					this.display.append(Klippekort.PRIS_PER_REISE+",- kr har nå blitt trukket fra din reisekonto\n");
-					this.display.append("Billetten er nå aktiv. Saldo på reisekonto er "+((Klippekort) kort).getSaldo()+"\n");
+					this.display.append("Billetten er nå aktiv. Saldo på reisekonto er kr "+((Klippekort) kort).getSaldo()+",-\n");
 				}
 				this.display.append("Billetten er gyldig til "+kort.gyldigTil());
 			} else {
 				this.display.setBackground(this.rod);
 				this.display.append("Ugyldig billett\n");
 				if(kort instanceof Klippekort){
-					this.display.append("En enkeltreise koster"+Klippekort.PRIS_PER_REISE);
+					this.display.append("En enkeltreise koster kr "+Klippekort.PRIS_PER_REISE+",-");
 					this.display.append(". Din saldo er "+((Klippekort) kort).getSaldo());
 				}
 			}
+
+			return;
 		}
 
 		// Hvis kort er null
