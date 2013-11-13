@@ -95,21 +95,21 @@ public class Reisekortsalg extends JFrame {
 		switch(kortType){
 			case KLIPP:
 				// Validering av input
-				try {
-					kort = new Klippekort(Integer.parseInt(this.belopsFelt.getText()));
-				} catch (NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(null, "Du må taste inn et gyldig beløp (heltall)!");
-					return;
-				}
-				break;
+			try {
+				kort = new Klippekort(Integer.parseInt(this.belopsFelt.getText()));
+			} catch (NumberFormatException nfe) {
+				JOptionPane.showMessageDialog(null, "Du må taste inn et gyldig beløp (heltall)!");
+				return;
+			}
+			break;
 
 			case DAG:
-				kort = new Dagskort();
-				break;
+			kort = new Dagskort();
+			break;
 
 			case MAANED:
-				kort = new Maanedskort();
-				break;
+			kort = new Maanedskort();
+			break;
 		}
 
 		// Aktiviser kortet
@@ -119,16 +119,20 @@ public class Reisekortsalg extends JFrame {
 	}
 
 	public void ladOppKlippekort(){
-		int kortNr = Integer.parseInt(this.kortNrFelt.getText());
-		int sum    = Integer.parseInt(this.belopsFelt.getText());
+		try {
+			int kortNr = Integer.parseInt(this.kortNrFelt.getText());
+			int sum    = Integer.parseInt(this.belopsFelt.getText());
 
-		Klippekort kort = this.kortsystem.ladOppKlippekort(kortNr, sum);
+			Klippekort kort = this.kortsystem.ladOppKlippekort(kortNr, sum);
 
-		if(kort != null){
-			this.betalingsFelt.setText(sum+",-");
-			JOptionPane.showMessageDialog(null, "Ny saldo er kr "+kort.getSaldo()+",-");
-		} else {
-			this.betalingsFelt.setText("error");
+			if(kort != null){
+				this.betalingsFelt.setText(sum+",-");
+				JOptionPane.showMessageDialog(null, "Ny saldo er kr "+kort.getSaldo()+",-");
+			} else {
+				this.betalingsFelt.setText("error");
+			}
+		} catch (NumberFormatException nfe) {
+			JOptionPane.showMessageDialog(null, "Du har ikke spesifisert et gyldig kortnummer!");
 		}
 	}
 
@@ -136,20 +140,20 @@ public class Reisekortsalg extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			switch(e.getActionCommand()){
 				case "klipp":
-					nyttReisekort(KLIPP);
-					break;
+				nyttReisekort(KLIPP);
+				break;
 
 				case "dag":
-					nyttReisekort(DAG);
-					break;
+				nyttReisekort(DAG);
+				break;
 
 				case "mnd":
-					nyttReisekort(MAANED);
-					break;
+				nyttReisekort(MAANED);
+				break;
 
 				case "ladeknapp":
-					ladOppKlippekort();
-					break;
+				ladOppKlippekort();
+				break;
 			}
 		}
 	}
