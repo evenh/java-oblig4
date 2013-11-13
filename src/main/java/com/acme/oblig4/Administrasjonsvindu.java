@@ -31,6 +31,7 @@ public class Administrasjonsvindu extends JFrame implements ActionListener {
 		c.add(salgsinfo);
 		// JTextArea-objekt
 		this.output = new JTextArea(10, 20);
+		this.output.setEditable(false);
 		c.add(output);
 
 		// Dimensjoner
