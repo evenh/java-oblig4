@@ -125,11 +125,11 @@ public class Reisekortsalg extends JFrame {
 		Klippekort kort = this.kortsystem.ladOppKlippekort(kortNr, sum);
 
 		if(kort != null){
-			JOptionPane.showMessageDialog(null, "Ny saldo er kr "+kort.getSaldo()+",-");
 			this.betalingsFelt.setText(sum+",-");
+			JOptionPane.showMessageDialog(null, "Ny saldo er kr "+kort.getSaldo()+",-");
+		} else {
+			this.betalingsFelt.setText("error");
 		}
-
-		this.betalingsFelt.setText("error");
 	}
 
 	private class Lytter implements ActionListener {
