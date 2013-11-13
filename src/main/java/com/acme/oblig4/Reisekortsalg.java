@@ -93,7 +93,13 @@ public class Reisekortsalg extends JFrame {
 
 		switch(kortType){
 			case KLIPP:
-				kort = new Klippekort(Integer.parseInt(this.belopsFelt.getText()));
+				// Validering av input
+				try {
+					kort = new Klippekort(Integer.parseInt(this.belopsFelt.getText()));
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "Du må taste inn et gyldig beløp (heltall)!");
+					return;
+				}
 				break;
 
 			case DAG:
