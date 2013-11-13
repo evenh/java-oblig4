@@ -65,35 +65,42 @@ public class Kontrollvindu extends JFrame {
 	}
 
 	public void kontrollerReisekort(){
-		// Finn kort
-		Reisekort kort = this.kortsystem.finnReisekort(Integer.parseInt(this.kortIdFelt.getText()));
-		// Nullstill output
-		this.display.setText("");
+		try {
 
-		// Hvis kortet ikke er null
-		if(kort != null){
-			if(kort.gyldig()){
-				this.display.setBackground(this.gronn);
-				if(kort instanceof Klippekort){
-					this.display.append(Klippekort.PRIS_PER_REISE+",- kr har nå blitt trukket fra din reisekonto\n");
-					this.display.append("Billetten er nå aktiv. Saldo på reisekonto er kr "+((Klippekort) kort).getSaldo()+",-\n");
+
+			// Finn kort
+			Reisekort kort = this.kortsystem.finnReisekort(Integer.parseInt(this.kortIdFelt.getText()));
+			// Nullstill output
+			this.display.setText("");
+
+			// Hvis kortet ikke er null
+			if(kort != null){
+				if(kort.gyldig()){
+					this.display.setBackground(this.gronn);
+					if(kort instanceof Klippekort){
+						this.display.append(Klippekort.PRIS_PER_REISE+",- kr har nå blitt trukket fra din reisekonto\n");
+						this.display.append("Billetten er nå aktiv. Saldo på reisekonto er kr "+((Klippekort) kort).getSaldo()+",-\n");
+					}
+					this.display.append("Billetten er gyldig til "+kort.gyldigTil());
+				} else {
+					this.display.setBackground(this.rod);
+					this.display.append("Ugyldig billett\n");
+					if(kort instanceof Klippekort){
+						this.display.append("En enkeltreise koster kr "+Klippekort.PRIS_PER_REISE+",-");
+						this.display.append(". Din saldo er kr "+((Klippekort) kort).getSaldo()+",-");
+					}
 				}
-				this.display.append("Billetten er gyldig til "+kort.gyldigTil());
-			} else {
-				this.display.setBackground(this.rod);
-				this.display.append("Ugyldig billett\n");
-				if(kort instanceof Klippekort){
-					this.display.append("En enkeltreise koster kr "+Klippekort.PRIS_PER_REISE+",-");
-					this.display.append(". Din saldo er kr "+((Klippekort) kort).getSaldo()+",-");
-				}
+
+				return;
 			}
 
-			return;
+			// Hvis kort er null
+			this.display.setBackground(this.rod);
+			this.display.setText("Ukjent kort");
+		} catch (NumberFormatException nfe) {
+			this.display.setBackground(this.rod);
+			this.display.setText("Du har tastet inn et ugyldig kortnummer");
 		}
-
-		// Hvis kort er null
-		this.display.setBackground(this.rod);
-		this.display.setText("Ukjent kort");
 	}
 
 	private class Lytter implements ActionListener {
