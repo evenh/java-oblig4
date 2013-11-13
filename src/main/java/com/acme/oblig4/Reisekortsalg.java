@@ -31,17 +31,18 @@ public class Reisekortsalg extends JFrame {
 		this.kortNrFelt    = new JTextField(7);
 		this.betalingsFelt = new JTextField(7);
 		this.belopsFelt    = new JTextField(7);
-		
+
 		this.klipp         = new JButton("Klippekort");
 		this.dag           = new JButton("Dagskort");
 		this.mnd           = new JButton("Månedskort");
 		this.ladeknapp     = new JButton("Oppladning av klippekort");
-		
-		this.info          = new JTextArea(4, 32);
+
+		// Etter litt testing, så ser vi at denne er nødvendig
+		this.info = (System.getProperty("os.name").toLowerCase().indexOf("windows")!= -1) ? new JTextArea(4, 30) : new JTextArea(4, 31);
 
 		this.info.setEditable(false);
 		this.betalingsFelt.setEditable(false);
-		this.betalingsFelt.setOpaque(false); 
+		this.betalingsFelt.setOpaque(false);
 
 		// Assigner lytter
 		this.klipp.addActionListener(this.lytter);
@@ -77,10 +78,10 @@ public class Reisekortsalg extends JFrame {
 
 		// Vindu
 		if(System.getProperty("os.name").toLowerCase().indexOf("windows")!= -1){
-			setSize(365, 220);
+			setSize(350, 220);
 		} else {
 			// Mac
-			setSize(385, 220);
+			setSize(375, 210);
 		}
 
 		// Synlighet og lukkbar
