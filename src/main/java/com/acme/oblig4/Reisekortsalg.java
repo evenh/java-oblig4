@@ -132,7 +132,7 @@ public class Reisekortsalg extends JFrame {
 		this.betalingsFelt.setText("error");
 	}
 
-	public class Lytter implements ActionListener {
+	private class Lytter implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			switch(e.getActionCommand()){
 				case "klipp":

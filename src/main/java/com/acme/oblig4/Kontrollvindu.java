@@ -96,7 +96,7 @@ public class Kontrollvindu extends JFrame {
 		this.display.setText("Ukjent kort");
 	}
 
-	public class Lytter implements ActionListener {
+	private class Lytter implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			kontrollerReisekort();
 		}
